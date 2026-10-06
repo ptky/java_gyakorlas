@@ -19,6 +19,8 @@ public class Main {
         vizsgaEredmeny(szazalek_Beker);
         int homerseklet_Beker = bekeres("Add meg a hömérsékletet (csak szám):");
         homerseklet(homerseklet_Beker);
+        int mozijegy_kor = bekeres("Add meg az életkorod:");
+        mozijegy(mozijegy_kor, true);
     }
     
     public static int bekeres(String kerdes) {
@@ -83,5 +85,32 @@ public class Main {
         System.out.println("Időjárás a fok alapján: "+szoveg);
     
 }
+    
+    public static void mozijegy(int szam, boolean diakigazolvany) {
+        szoveg = "";
+        if (szam <= 5)  {
+            szoveg = "Ingyenes";
+        }
+        else if (szam <= 13) {
+            szoveg = "Gyerek jegy - 1200ft";
+        }     
+        else if (szam <= 17) {
+            szoveg = "Diák - 1600ft";
+            if (diakigazolvany) {
+                szoveg = "Diák - 1280ft, 20% kedvezménnyel";
+            }
+        }
+        else if (szam > 18) {
+            szoveg = "Felnőtt - 2200ft";
+        }
+        else {
+            szoveg = "Helytelen érték";
+            
+        }
+        System.out.println("A mozijegy ára kor alapján: "+szoveg);
+    
+}
+    
+     
 
 }
