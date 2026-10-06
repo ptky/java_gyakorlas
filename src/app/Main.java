@@ -23,6 +23,10 @@ public class Main {
         mozijegy(mozijegy_kor, true);
         int etterem_beker = bekeres("Add meg a menű számát (1,2,3):");
         etterem(etterem_beker, true);
+        int parkolas_beker = bekeres("Add meg a parkolási órák számát:");
+        parkolodij(parkolas_beker);
+        int atm_beker = bekeres("Mennyi pénzt szeretne felvenni? Adja meg:");
+        atm(atm_beker,8000);
     }
 
     public static int bekeres(String kerdes) {
@@ -105,8 +109,7 @@ public class Main {
             System.out.println("Helytelen szám.");
             int etterem_beker = bekeres("Add meg a menű számát (1,2,3):");
             etterem(etterem_beker, kupon);
-        } 
-        else {
+        } else {
             if (szam == 1) {
                 szoveg = "1. Hamburger menü, ára 2200 Ft";
                 if (kupon) {
@@ -129,7 +132,43 @@ public class Main {
         }
 
     }
+
+    public static void parkolodij(int szam) {
+        szoveg = "";
+        if (szam > 5 || szam <= 0) {
+            System.out.println("Érvénytelen parkolási idő");
+        } else {
+            if (szam == 1) {
+                szoveg = "500ft";
+            } else if (szam == 2) {
+                szoveg = "900ft";
+            } else if (szam == 3) {
+                szoveg = "1300ft";
+            } else if (szam > 3) {
+                szoveg = "1500ft";
+            }
+            System.out.println("A parkolási díjad: " + szoveg);
+        }
+
+    }
     
- 
+   public static void atm(int szam, int fedezet) {
+        szoveg = "";
+        if (szam < 0) {
+            szoveg = "Szegény vagy mint a templom egere:) " + szam+"Ft";
+        }
+        else if (szam > fedezet ){
+            szoveg = "Nincs elég fedezeted! Elérhető egyenleg: "+fedezet+"Ft";
+        }
+        else if (szam % 1000 != 0)  {
+           szoveg = ("Az összeg nem osztható 1000-el.");
+        } 
+        else {
+            szoveg = "Sikeres felvétel! Maradék összeg:"+(fedezet-szam)+"Ft";
+        }
+        System.out.println(szoveg);
+        
+        
+    }
 
 }
