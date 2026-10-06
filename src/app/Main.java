@@ -17,6 +17,8 @@ public class Main {
     public static void main(String[] args) {
         int szazalek_Beker = bekeres("Add meg a százalékot (csak szám):");
         vizsgaEredmeny(szazalek_Beker);
+        int homerseklet_Beker = bekeres("Add meg a hömérsékletet (csak szám):");
+        homerseklet(homerseklet_Beker);
     }
     
     public static int bekeres(String kerdes) {
@@ -52,8 +54,34 @@ public class Main {
             
         }
         System.out.println("A százalékod jegyben kifejezve: "+szoveg);
-        
     }
     
+    public static void homerseklet(int szam) {
+        szoveg = "";
+        if (szam == 0)  {
+            szoveg = "Pontosan 0 fok van";
+        }
+        else if (szam < 0) {
+            szoveg = "Fagy";
+        }     
+        else if (szam <= 7) {
+            szoveg = "Hideg";
+        }
+        else if (szam <= 15) {
+            szoveg = "Kellemes";
+        }
+        else if (szam <= 25) {
+            szoveg = "Meleg";
+        }
+        else if (szam > 25) {
+            szoveg = "Forró";
+        }
+        else {
+            szoveg = "Helytelen érték";
+            
+        }
+        System.out.println("Időjárás a fok alapján: "+szoveg);
     
+}
+
 }
