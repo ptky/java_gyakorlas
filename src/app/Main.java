@@ -22,125 +22,114 @@ public class Main {
         int mozijegy_kor = bekeres("Add meg az életkorod:");
         mozijegy(mozijegy_kor, true);
         int etterem_beker = bekeres("Add meg a menű számát (1,2,3):");
-        etterem(etterem_beker,true);
-    }   
-    
+        etterem(etterem_beker, true);
+    }
+
     public static int bekeres(String kerdes) {
-        
+
         Scanner scr = new Scanner(System.in);
         System.out.println(kerdes);
-        
+
         int szam = scr.nextInt();
         return szam;
-        
+
     }
+
     public static void vizsgaEredmeny(int szam) {
-        if (szam <= 39)  {
+        if (szam <= 39) {
             szoveg = "0 - 39% elégtelen";
-        }
-        else if (szam <= 50) {
+        } else if (szam <= 50) {
             szoveg = "40 - 50% elégséges";
-        }
-        else if (szam <= 65) {
+        } else if (szam <= 65) {
             szoveg = "51 – 66% közepes";
-        }
-        else if (szam <= 84) {
+        } else if (szam <= 84) {
             szoveg = "65 – 84%	jó";
-        }
-        else if (szam <=100) {
+        } else if (szam <= 100) {
             szoveg = "85 - 100% Jeles";
             if (szam == 100) {
                 szoveg += " Gratulálunk!";
             }
-        }
-        else {
+        } else {
             szoveg = "Helytelen érték";
-            
+
         }
-        System.out.println("A százalékod jegyben kifejezve: "+szoveg);
+        System.out.println("A százalékod jegyben kifejezve: " + szoveg);
     }
-    
+
     public static void homerseklet(int szam) {
         szoveg = "";
-        if (szam == 0)  {
+        if (szam == 0) {
             szoveg = "Pontosan 0 fok van";
-        }
-        else if (szam < 0) {
+        } else if (szam < 0) {
             szoveg = "Fagy";
-        }     
-        else if (szam <= 7) {
+        } else if (szam <= 7) {
             szoveg = "Hideg";
-        }
-        else if (szam <= 15) {
+        } else if (szam <= 15) {
             szoveg = "Kellemes";
-        }
-        else if (szam <= 25) {
+        } else if (szam <= 25) {
             szoveg = "Meleg";
-        }
-        else if (szam > 25) {
+        } else if (szam > 25) {
             szoveg = "Forró";
-        }
-        else {
+        } else {
             szoveg = "Helytelen érték";
-            
+
         }
-        System.out.println("Időjárás a fok alapján: "+szoveg);
-    
-}
-    
+        System.out.println("Időjárás a fok alapján: " + szoveg);
+
+    }
+
     public static void mozijegy(int szam, boolean diakigazolvany) {
         szoveg = "";
-        if (szam <= 5)  {
+        if (szam <= 5) {
             szoveg = "Ingyenes";
-        }
-        else if (szam <= 13) {
+        } else if (szam <= 13) {
             szoveg = "Gyerek jegy - 1200ft";
-        }     
-        else if (szam <= 17) {
+        } else if (szam <= 17) {
             szoveg = "Diák - 1600ft";
             if (diakigazolvany) {
                 szoveg = "Diák - 1280ft, 20% kedvezménnyel";
             }
-        }
-        else if (szam > 18) {
+        } else if (szam > 18) {
             szoveg = "Felnőtt - 2200ft";
-        }
-        else {
+        } else {
             szoveg = "Helytelen érték";
-            
-        }
-        System.out.println("A mozijegy ára kor alapján: "+szoveg);
-    
-}
-    
-     public static void etterem(int szam, boolean kupon) {
-        szoveg = "";
-        if (szam == 1)  {
-            szoveg = "1. Hamburger menü, ára 2200 Ft";
-            if (kupon) {
-                szoveg = "1. Hamburger menü, ára 2000 Ft kuponnal";
-            }
-        }
-        else if (szam == 2) {
-            szoveg = "2. Pizza menü, ára 2500 Ft";
-            if (kupon) {
-                szoveg = "2. Pizza menü, ára 2250 Ft kuponnal";
-            }
-        }     
-        else if (szam == 3) {
-            szoveg = "3. Saláta menü, ára 1800 Ft";
-            if (kupon) {
-                szoveg = "3. Saláta menü, ára 1620 Ft kuponnal";
-            }
-        }
-        else {
-            System.out.println("Helytelen szám.");
-            int etterem_beker = bekeres("Add meg a menű számát (1,2,3):");
-            etterem(etterem_beker);
 
         }
-        System.out.println("A menüd: "+szoveg);
+        System.out.println("A mozijegy ára kor alapján: " + szoveg);
+
+    }
+
+    public static void etterem(int szam, boolean kupon) {
+        szoveg = "";
+        if (szam < 1 || szam > 3) {
+            System.out.println("Helytelen szám.");
+            int etterem_beker = bekeres("Add meg a menű számát (1,2,3):");
+            etterem(etterem_beker, kupon);
+        } 
+        else {
+            if (szam == 1) {
+                szoveg = "1. Hamburger menü, ára 2200 Ft";
+                if (kupon) {
+                    szoveg = "1. Hamburger menü, ára 2000 Ft kuponnal";
+                }
+            } else if (szam == 2) {
+                szoveg = "2. Pizza menü, ára 2500 Ft";
+                if (kupon) {
+                    szoveg = "2. Pizza menü, ára 2250 Ft kuponnal";
+                }
+            } else if (szam == 3) {
+                szoveg = "3. Saláta menü, ára 1800 Ft";
+                if (kupon) {
+                    szoveg = "3. Saláta menü, ára 1620 Ft kuponnal";
+                }
+
+            }
+            System.out.println("A menüd: " + szoveg);
+
+        }
+
+    }
     
-}
+ 
 
 }
