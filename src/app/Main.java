@@ -12,9 +12,11 @@ import java.util.Scanner;
  */
 public class Main {
 
+    static String szoveg = "";
 
     public static void main(String[] args) {
-        
+        int szazalek_Beker = bekeres("Add meg a százalékot (csak szám):");
+        vizsgaEredmeny(szazalek_Beker);
     }
     
     public static int bekeres(String kerdes) {
@@ -26,7 +28,32 @@ public class Main {
         return szam;
         
     }
-    
+    public static void vizsgaEredmeny(int szam) {
+        if (szam <= 39)  {
+            szoveg = "0 - 39% elégtelen";
+        }
+        else if (szam <= 50) {
+            szoveg = "40 - 50% elégséges";
+        }
+        else if (szam <= 65) {
+            szoveg = "51 – 66% közepes";
+        }
+        else if (szam <= 84) {
+            szoveg = "65 – 84%	jó";
+        }
+        else if (szam <=100) {
+            szoveg = "85 - 100% Jeles";
+            if (szam == 100) {
+                szoveg += " Gratulálunk!";
+            }
+        }
+        else {
+            szoveg = "Helytelen érték";
+            
+        }
+        System.out.println("A százalékod jegyben kifejezve: "+szoveg);
+        
+    }
     
     
 }
