@@ -21,7 +21,9 @@ public class Main {
         homerseklet(homerseklet_Beker);
         int mozijegy_kor = bekeres("Add meg az életkorod:");
         mozijegy(mozijegy_kor, true);
-    }
+        int etterem_beker = bekeres("Add meg a menű számát (1,2,3):");
+        etterem(etterem_beker,true);
+    }   
     
     public static int bekeres(String kerdes) {
         
@@ -111,6 +113,34 @@ public class Main {
     
 }
     
-     
+     public static void etterem(int szam, boolean kupon) {
+        szoveg = "";
+        if (szam == 1)  {
+            szoveg = "1. Hamburger menü, ára 2200 Ft";
+            if (kupon) {
+                szoveg = "1. Hamburger menü, ára 2000 Ft kuponnal";
+            }
+        }
+        else if (szam == 2) {
+            szoveg = "2. Pizza menü, ára 2500 Ft";
+            if (kupon) {
+                szoveg = "2. Pizza menü, ára 2250 Ft kuponnal";
+            }
+        }     
+        else if (szam == 3) {
+            szoveg = "3. Saláta menü, ára 1800 Ft";
+            if (kupon) {
+                szoveg = "3. Saláta menü, ára 1620 Ft kuponnal";
+            }
+        }
+        else {
+            System.out.println("Helytelen szám.");
+            int etterem_beker = bekeres("Add meg a menű számát (1,2,3):");
+            etterem(etterem_beker);
+
+        }
+        System.out.println("A menüd: "+szoveg);
+    
+}
 
 }
