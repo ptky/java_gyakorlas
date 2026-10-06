@@ -27,6 +27,10 @@ public class Main {
         parkolodij(parkolas_beker);
         int atm_beker = bekeres("Mennyi pénzt szeretne felvenni? Adja meg:");
         atm(atm_beker,8000);
+        int a_beker = bekeres("Add meg az a oldalt:");
+        int b_beker = bekeres("Add meg az b oldalt:");
+        int c_beker = bekeres("Add meg az c oldalt:");
+        haromszog_vizsgalat(a_beker, b_beker, c_beker);
     }
 
     public static int bekeres(String kerdes) {
@@ -167,8 +171,21 @@ public class Main {
             szoveg = "Sikeres felvétel! Maradék összeg:"+(fedezet-szam)+"Ft";
         }
         System.out.println(szoveg);
-        
+   
         
     }
+   public static void haromszog_vizsgalat(int a, int b, int c) {
+       if (a+b > c && a+c > b && c+b > a) {
+           System.out.println("Szerkeszthető háromszög.");
+           if (a == b && b == c && a == c) {
+               System.out.println("Általános háromszög");
+           }
+       }
+       else {
+           System.out.println("Nem szerkeszthető háromszög.");
+       }
+   }
+   
+   
 
 }
