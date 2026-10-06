@@ -178,7 +178,10 @@ public class Main {
        if (a+b > c && a+c > b && c+b > a) {
            System.out.println("Szerkeszthető háromszög.");
            if (a == b && b == c && a == c) {
-               System.out.println("Általános háromszög");
+               System.out.println("Egyenlő oldalú háromszög");
+           }
+           else if (a == b || b == c || a == c) {
+               System.out.println("Egyenlő szárú háromszög");
            }
        }
        else {
